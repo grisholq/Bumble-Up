@@ -7,7 +7,7 @@ public class PlayerBall : Figure
     [SerializeField] private Transform _cameraLookPoint;
     [SerializeField] private ParticleSystem _deathParticles;
 
-    [Inject] private SwipeInput _input;
+    [Inject] private SwipeInput _swipeInput;
 
     public event UnityAction JumpedUp;
     public event UnityAction Died;
@@ -15,15 +15,15 @@ public class PlayerBall : Figure
 
     void Update()
     {
-        if(_input.Click)
+        if (_swipeInput.Click || Input.GetKeyDown(KeyCode.Space))
         {
             MakeJumpForward();
         }
-        else if(_input.SwipeLeft) 
+        else if(_swipeInput.SwipeLeft || Input.GetKeyDown(KeyCode.A))   
         {
             MakeMoveToLeft();
         }
-        else if (_input.SwipeRight)
+        else if (_swipeInput.SwipeRight || Input.GetKeyDown(KeyCode.D))
         {
             MakeMoveToRight();
         }

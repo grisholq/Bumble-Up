@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyBall : Figure
+public class EnemyBox : Figure
 {
     [SerializeField] private float _jumpTime = 1;
 
